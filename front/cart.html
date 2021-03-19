@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="assets/css/styleCart.css">
+</head>
+<body>
+
+    <main>
+
+        <section>
+            <h1>Votre Panier :</h1>
+            <div id="cartContent">
+            </div>
+
+        </section>
+        
+        <section>
+            <h1>Passer Commande</h1>
+            <span id="totalPrice"></span>
+            <form id="formCart" action="POST">
+                <input type="text" name="firstName"  placeHolder="Prénon" id="firstName">
+                <input type="text" name="lastName" placeholder="Nom" id="lastName">
+                <input type="text" name="adress" placeholder="Adresse" id="adress">
+                <input type="text" name="city" placeholder="Ville" id="city">
+                <input type="text" name="email" placeholder="Email" id="email">
+                <input type="submit" value="Commander">
+            </form>
+        </section>
+
+
+    </main>
+
+
+    <script src="assets/js/cart.js"></script>
+</body>
+</html>

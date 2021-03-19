@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,GAAG,CACH;EACI,KAAK,EAAE,KAAK;CACf",
+    "sources": [
+        "styleProduct.scss"
+    ],
+    "names": [],
+    "file": "styleProduct.css"
+}
