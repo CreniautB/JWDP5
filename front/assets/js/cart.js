@@ -1,19 +1,12 @@
+$("header").load("header.html"); 
+
 const inStorage = JSON.parse(localStorage.getStorage);
 
 let totalPrice = 0
-
-const getServer = async function (produitId) {
-    try {
-        let response = await fetch(`http://localhost:3000/api/teddies/${produitId}`);
-        let data = await response.json();
-        return data;    
-    } catch (error) {
-        console.error(error.message);
-    }
-};
+var order_id
 
 
-console.log(inStorage)
+
 
 inStorage.forEach(element => {
 
@@ -47,7 +40,6 @@ inStorage.forEach(element => {
         quantityDom.innerHTML = quantity
         
         delElement = document.createElement("button")
-        delElement.classList.add(element.id)
         delElement.innerHTML = "Suprimer l'article du panier"
 
         cart.appendChild(title)
@@ -58,7 +50,8 @@ inStorage.forEach(element => {
         delElement.addEventListener("click", () => {
             const inStorage = JSON.parse(localStorage.getStorage);
             inStorage.map(teddie => {
-                if (teddie.id == delElement.classList[0]) {
+                parent = delElement.parentElement
+                if (teddie.id == parent.id) {
                     const index = inStorage.indexOf(teddie);
                     if (index > -1) {
                         inStorage.splice(index, 1);
@@ -105,22 +98,24 @@ function checkContact(contact){
 }
 
 const postServer = async (order) => {
-    try {
+
         const response = await fetch("http://localhost:3000/api/teddies/order", {
             method: "POST",
             body: JSON.stringify(order),
             headers: { "Content-Type": "application/json" }
         });
         const data = await response.json();
+
+
         if (response.ok) {
             return data;
+          
         } else {
-            throw new error("problem server transmission");
+            console.error("probelem")
         };
-    } catch (error) {
-        console.error(error);
-    }
 };
+
+
 document.querySelector("#formCart").addEventListener("submit", async (event) => {
 
     event.preventDefault();
@@ -136,7 +131,7 @@ document.querySelector("#formCart").addEventListener("submit", async (event) => 
     id = document.querySelectorAll("article")
 
     id.forEach(element => {
-        console.log(element.id)
+      
         productiD.push(element.id)
     })
 
@@ -145,18 +140,18 @@ document.querySelector("#formCart").addEventListener("submit", async (event) => 
 
     order.contact = contact;
 
-    console.log(order)
-
     if(checkContact(contact)) {
+        const sendOrder = await postServer(order);
+        confirmationPage(sendOrder)
         
-        postServer(order);
-        localStorage.clear()
-        
+           
     }
-
-
-    
-
 
 });
 
+const confirmationPage = async (order) => {
+
+    console.log(order)
+    let urlData = 'confirmation.html?'+"id="+order.orderId+"&"+"total="+totalPrice
+    window.location = urlData
+}

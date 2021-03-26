@@ -1,3 +1,5 @@
+$("header").load("header.html"); 
+
 let product_id = window.location.search.substr(4);
 
 fetch(`http://localhost:3000/api/teddies/${product_id}`)
@@ -8,8 +10,8 @@ fetch(`http://localhost:3000/api/teddies/${product_id}`)
 .then ((data) => {
 
     /** Création de la page produit */
-    document.querySelector("h1").innerHTML = data.name  
-    document.querySelector("img").src = data.imageUrl
+    document.querySelector("#teddyH1").innerHTML = data.name  
+    document.querySelector("#teddyImg").src = data.imageUrl
 
 
     /** Ratio Couleurs Produit */
@@ -81,22 +83,5 @@ addCart.addEventListener("click", () => {
 });
 
 
-const widgetQuantities = async (quantities) => {
-    const widget = document.getElementById("article");
-    const teddies = await getQuantities();
-    widget.textContent = `${teddies.reduce((total, teddie) => total + parseFloat(teddie.quantity), 0)}`;
-    widget.style.display = "block";
-};
 
-const getQuantities = async () => {
-    const inStorage = JSON.parse(localStorage.getStorage);
-    return await Promise.all(inStorage.map(produit => {
-        return produit
-    }));
-};
 
-if (localStorage.getStorage) {
-    widgetQuantities();
-};
-
-console.log(localStorage)

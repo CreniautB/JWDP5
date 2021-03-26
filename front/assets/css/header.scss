@@ -1,0 +1,56 @@
+$light : #f3e9f1;
+$darker : #fff5fd;
+
+body 
+{
+    margin: 0;
+    padding: 0;
+
+}
+
+
+header 
+{
+    background-color: $light;
+    display: flex;
+    justify-content: space-between;
+    padding: 2em;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-family: 'Syne Mono', monospace;
+
+    img 
+    {
+        width: 300px;
+    }
+
+    a
+    {
+        text-decoration: none;
+    }
+
+    h1 
+    {
+        color: black;
+    }
+
+
+}
+
+@media screen and (max-width: 700px)
+{
+
+    header
+    {
+        img 
+        {
+           width: 150px;
+        }
+        h1
+        {
+            font-size: 15px;
+        }
+    }
+
+
+}
