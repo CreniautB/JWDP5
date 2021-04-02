@@ -1,4 +1,114 @@
+*
+{
+       font-family: 'Rubik', sans-serif;
+}
+#emptyCart
+{
+    display: none;
+    width: 500px;
+    margin: auto;
+    margin-top: 5em;
+    text-align: center;
+    
+    h1 
+    {
+        margin-bottom: 2em;
+    }
+
+    a 
+    {
+        border: 3px solid #8f5bfe;
+        background: linear-gradient(to bottom right, #8f5bfe 4%, #ba7284 100%);
+        color: white;
+        padding: 1em;
+        text-decoration: none;
+    }
+}
 img
 {
     width: 200px;
+}        
+#titleCart
+{
+    text-align: center;
+}
+
+main 
+{
+    #articleContainer 
+    {
+        width: 80%;
+        margin: auto;
+        
+        #cartContent
+        {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        article 
+        {
+            text-align: center;
+            width: 300px;
+
+            img 
+            {
+                margin-bottom: 1em;
+            }
+            button 
+            {
+                border: 3px solid #8f5bfe;
+                background: linear-gradient(to bottom right, #8f5bfe 4%, #ba7284 100%);
+                color: white;
+                padding: 1em;
+            }         
+            
+        }
+    }
+
+    #titlePrice 
+    {
+        text-align: center;
+    }
+
+    #formContainer 
+    {
+        width: 60%;
+        margin: auto;
+        display: flex;
+        text-align: center;
+        
+        form 
+        {
+            margin-top: 2em;
+            width: 400px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            label   
+            {
+                margin: 10px 0 10px 0;
+            }
+            
+            input 
+            {
+
+                padding: 0.4em;
+            }
+            #sub
+            {
+                border: 3px solid white;
+                background: linear-gradient(to bottom right, #8f5bfe 4%, #ba7284 100%);
+                color: white;
+                padding: 1em;
+                margin-top: 1em;
+            }
+            input::placeholder
+            {
+                display: none;
+            }
+        }
+        
+    }
+
 }

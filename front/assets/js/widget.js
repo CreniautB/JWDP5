@@ -4,7 +4,6 @@ const widgetQuantities = async (quantities) => {
     const teddies = await getQuantities();
     widget.textContent = `${teddies.reduce((total, teddie) => total + parseFloat(teddie.quantity), 0)}`;
     widget.style.display = "block";
-    console.log(teddies)
 };
 
 const getQuantities = async () => {

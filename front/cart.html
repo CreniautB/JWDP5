@@ -7,39 +7,79 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
-
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,500;0,700;1,300&family=Syne+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/styleCart.css">
+
+    <script src="assets/js/cart.js" defer></script>
+    <script src="assets/js/widget.js" type="text/javascript"  defer ></script>
+
+
+
 </head>
 <body>
 
-    <header></header>
+    <header>
+
+        <a href="index.html">
+            <h1>Home</h1>
+        </a>
+    
+
+        <img id="logo" src="assets/img/OrinocoLogo.png" alt="Logo Orinoco">
+
+        <div>
+            <a href="cart.html">
+                <h1>Panier</h1>
+            </a>
+
+            <span id="article"></span>
+        </div>
+    
+
+     </header>
 
     <main>
+        <h1 id="titleCart">Votre Panier :</h1>
+        <section id="articleContainer" >
 
-        <section>
-            <h1>Votre Panier :</h1>
             <div id="cartContent">
             </div>
 
         </section>
         
-        <section>
+        <div id="titlePrice">
             <h1>Passer Commande</h1>
             <span id="totalPrice"></span>
+        </div>
+
+        <section id="formContainer">
+
             <form id="formCart" action="POST">
+                <label for="firstName">Votre Prénom</label>
                 <input type="text" name="firstName"  placeHolder="Prénon" id="firstName">
+                <label for="lastName">Votre Nom</label>
                 <input type="text" name="lastName" placeholder="Nom" id="lastName">
+                <label for="adress">Votre Adresse</label>
                 <input type="text" name="adress" placeholder="Adresse" id="adress">
+                <label for="city">Votre Ville</label>
                 <input type="text" name="city" placeholder="Ville" id="city">
+                <label for="email">Votre Email</label>
                 <input type="text" name="email" placeholder="Email" id="email">
-                <input type="submit" value="Commander">
+                <input type="submit" value="Commander" id="sub">
             </form>
         </section>
 
 
     </main>
 
+    <div id="emptyCart">
+        <h1>
+            Votre Panier est vide
+        </h1>
+        <a href="index.html">Nos ourson</a>
+    </div>
 
-    <script src="assets/js/cart.js"></script>
+
 </body>
 </html>

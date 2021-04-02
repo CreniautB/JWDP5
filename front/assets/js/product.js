@@ -1,6 +1,6 @@
-$("header").load("header.html"); 
 
 let product_id = window.location.search.substr(4);
+
 
 fetch(`http://localhost:3000/api/teddies/${product_id}`)
 .then((response) => {
@@ -12,27 +12,49 @@ fetch(`http://localhost:3000/api/teddies/${product_id}`)
     /** Création de la page produit */
     document.querySelector("#teddyH1").innerHTML = data.name  
     document.querySelector("#teddyImg").src = data.imageUrl
+    document.querySelector("#teddyPara").innerHTML = data.description
 
 
     /** Ratio Couleurs Produit */
     for ( let i = 0; i < data.colors.length; i++) {
+        var colorsName = document.createElement("div");
+        var colorsSquare = document.createElement("div")
 
-        var radio = document.createElement("input")
-        var label = document.createElement("label")
-        radio.type = "radio"
-        radio.name = "colors"
-        radio.value = data.colors[i]
-        label.for = data.colors[i]
-        label.innerHTML = data.colors[i]
-        var parentRadio = document.createElement("div")
+        var colorsContainer = document.createElement("LI")
 
-        parentRadio.appendChild(radio)
-        parentRadio.appendChild(label)
-        document.querySelector("#radioSection").appendChild(parentRadio)
+        colorsSquare.style.backgroundColor = data.colors[i]
+        colorsSquare.classList.add("squares")
+        colorsName.innerHTML = data.colors[i];    
+        
+        if ( data.colors[i] === "Pale brown"){
+            colorsSquare.style.backgroundColor = "burlywood"
+        }
+        else if ( data.colors[i] === "Dark brown"){
+            colorsSquare.style.backgroundColor = "#654321"
+        }
+
+        colorsContainer.appendChild(colorsSquare)
+        colorsContainer.appendChild(colorsName)
+
+        document.querySelector("#radioSection").appendChild(colorsContainer)
     };
 
-})
 
+    const selectColor = document.querySelector("#whichColors")
+
+    for ( let i = 0 ; i < data.colors.length; i++){
+        const option = document.createElement("option")
+        option.value = data.colors[i]
+        option.innerHTML = data.colors[i]
+
+
+        selectColor.appendChild(option)
+    }
+
+    teddyPrice = data.price 
+    document.querySelector("#price").innerHTML = teddyPrice + " €"
+
+});
 
 
 /** Enregistrement dans le Panier */
@@ -75,12 +97,8 @@ const storageControl = () => {
 
 };
 
-const addCart = document.getElementById('add-cart');
 
-addCart.addEventListener("click", () => {
-    localStorage.setItem(`getStorage`, `${storageControl()}`);
-    widgetQuantities();
-});
+
 
 
 

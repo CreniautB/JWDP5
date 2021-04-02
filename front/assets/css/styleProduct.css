@@ -1,4 +1,114 @@
-img {
-  width: 200px;
+body {
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(4%, #d4803d), to(#8f5bfe));
+  background: linear-gradient(to bottom right, #d4803d 4%, #8f5bfe 100%);
+}
+
+main {
+  width: 60%;
+  margin: auto;
+  background-color: #fff5fd;
+  border: 5px solid #f3e9f1;
+  border-radius: 5px;
+  margin-top: 2em;
+}
+
+#teddy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 2em;
+}
+
+#teddyH1 {
+  text-align: center;
+  font-family: 'Syne Mono', monospace;
+  margin-bottom: 0;
+}
+
+#imgPara {
+  width: 700px;
+  margin: auto;
+  text-align: center;
+}
+
+#imgPara #radioSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+  width: 70%;
+  margin: auto;
+  margin-top: 1em;
+}
+
+#imgPara #radioSection li {
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0.5em;
+}
+
+#imgPara #radioSection .squares {
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  border: 1.5px solid black;
+  margin: auto;
+  margin-bottom: 0.9em;
+}
+
+#imgPara img {
+  width: 300px;
+  border: 5px solid #f3e9f1;
+  border-radius: 5px;
+}
+
+#colorCart {
+  width: 600px;
+  margin: auto;
+  margin-top: 0;
+}
+
+#colorCart #teddyPara {
+  font-size: 22px;
+  width: 60%;
+  margin: auto;
+}
+
+#colorCart #price {
+  font-size: 20px;
+  font-family: 'Rubik', sans-serif;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#colorCart #selectContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#colorCart #selectContainer select, #colorCart #selectContainer #add-cart {
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(4%, #8f5bfe), to(#ba7284));
+  background: linear-gradient(to bottom right, #8f5bfe 4%, #ba7284 100%);
+  font-size: 15px;
+  padding: 0.5em;
+  border: 5px solid #8f5bfe;
+  border-radius: 5px;
+  font-weight: 500;
+  color: white;
+}
+
+#colorCart #selectContainer select option, #colorCart #selectContainer #add-cart option {
+  background-color: #8f5bfe;
 }
 /*# sourceMappingURL=styleProduct.css.map */

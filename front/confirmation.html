@@ -3,15 +3,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/conf.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,500;0,700;1,300&family=Syne+Mono&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    
     <title>Document</title>
 </head>
 <body>
     
 
-    <header></header>
+    <header>    
+        <a href="index.html">
+            <h1>Home</h1>
+        </a>
+   
+
+        <img id="logo" src="assets/img/OrinocoLogo.png" alt="Logo Orinoco">
+
+        <div>
+            <a href="cart.html">
+                <h1>Panier</h1>
+            </a>
+
+            <span id="article"></span>
+        </div>
+
+    </header>
+
+    <main>
+            
+        <h1>Merci pour votre commande</h1>
+
+        <h2>Récapitulatif : </h2>
+        <h3>Votre numero de commande : <span id="numCommande"></span><br> pour un total de : <span id="price"></span> </h2>
+
+
+        <a id="comeBack" href="index.html">Revoir Nos Oursons</a>
+
+    </main>
 
     <script src="assets/js/conf.js"></script>
 </body>

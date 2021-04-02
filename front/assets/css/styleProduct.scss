@@ -1,4 +1,122 @@
-img 
+
+$light : #f3e9f1;
+$darker : #fff5fd;
+
+body 
 {
-    width: 200px;
+    background: linear-gradient(to bottom right, #d4803d 4%, #8f5bfe 100%);
 }
+main 
+{
+    
+    width: 60%;
+    margin: auto;
+    background-color: $darker;
+    border: 5px solid $light;
+    border-radius: 5px;
+    margin-top: 2em;
+}
+
+
+#teddy 
+{
+    display: flex;
+    padding: 2em;
+}
+#teddyH1
+{
+    text-align: center;
+    font-family: 'Syne Mono', monospace;
+    margin-bottom: 0;
+}
+
+#imgPara
+{
+    width: 700px;
+    margin: auto;
+    text-align: center;
+
+    #radioSection
+    {
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+        text-align: center;
+        padding: 0;
+        width: 70%;
+        margin: auto;
+        margin-top: 1em;
+        
+        li 
+        {
+            text-align: center;
+            justify-content: center;
+            margin: 0.5em;
+        }
+        .squares 
+        {
+            width: 20px;
+            height: 20px;
+            border-radius: 2px;
+            border: 1.5px solid black;
+            margin: auto;
+            margin-bottom: 0.9em;
+        }
+    }
+    img 
+    {
+        width: 300px;
+        border: 5px solid $light;
+        border-radius: 5px;
+    }
+
+
+}
+#colorCart
+{
+
+    width: 600px;
+    margin: auto;
+    margin-top: 0;
+
+    #teddyPara
+    {
+        font-size: 22px;
+        width: 60%;
+        
+        margin: auto;
+    }
+
+    #price
+    {
+        font-size: 20px;
+        font-family: 'Rubik', sans-serif;
+        text-align: center;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+    #selectContainer
+    {
+        display: flex;
+        justify-content: space-around;
+        
+        select,  #add-cart
+        {
+            background: linear-gradient(to bottom right, #8f5bfe 4%, #ba7284 100%);
+            font-size: 15px;
+            padding: 0.5em;
+            border: 5px solid #8f5bfe;
+            border-radius: 5px;
+            font-weight: 500;
+            color: white;
+            option 
+            {
+                background-color: #8f5bfe;
+            }
+        }
+
+    }
+
+}   
+
+

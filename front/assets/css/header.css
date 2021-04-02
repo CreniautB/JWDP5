@@ -1,6 +1,8 @@
 body {
   margin: 0;
   padding: 0;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(4%, #d4803d), to(#8f5bfe));
+  background: linear-gradient(to bottom right, #d4803d 4%, #8f5bfe 100%);
 }
 
 header {
@@ -8,17 +10,17 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   padding: 2em;
   padding-top: 0;
   padding-bottom: 0;
   font-family: 'Syne Mono', monospace;
 }
 
-header img {
-  width: 300px;
+header #logo {
+  width: 100px;
+  height: auto;
 }
 
 header a {
@@ -27,6 +29,8 @@ header a {
 
 header h1 {
   color: black;
+  margin-bottom: 0;
+  font-size: 20px;
 }
 
 @media screen and (max-width: 700px) {

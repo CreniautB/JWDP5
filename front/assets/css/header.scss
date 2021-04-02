@@ -1,10 +1,10 @@
 $light : #f3e9f1;
 $darker : #fff5fd;
-
 body 
 {
     margin: 0;
     padding: 0;
+    background: linear-gradient(to bottom right, #d4803d 4%, #8f5bfe 100%);
 
 }
 
@@ -13,15 +13,17 @@ header
 {
     background-color: $light;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 2em;
     padding-top: 0;
     padding-bottom: 0;
     font-family: 'Syne Mono', monospace;
 
-    img 
+    #logo 
     {
-        width: 300px;
+        width: 100px;
+        height: auto;
+
     }
 
     a
@@ -32,6 +34,8 @@ header
     h1 
     {
         color: black;
+        margin-bottom: 0;
+        font-size: 20px;
     }
 
 

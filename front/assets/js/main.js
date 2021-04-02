@@ -1,6 +1,4 @@
 
-$("header").load("header.html"); 
-
 fetch('http://localhost:3000/api/teddies')
 .then((response) => {
     return response.json()
@@ -8,7 +6,7 @@ fetch('http://localhost:3000/api/teddies')
 
 .then ((data) => {
 
-    var model = document.querySelector("#model")
+    const model = document.querySelector("#model")
 
     data.forEach(element => {
     

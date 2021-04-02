@@ -1,10 +1,17 @@
-$("header").load("header.html"); 
-
 const inStorage = JSON.parse(localStorage.getStorage);
 
-let totalPrice = 0
-var order_id
+if ( inStorage.length === 0 || inStorage === 'undefined')
+{
+    document.querySelector("main").style.display = "none";
+    document.querySelector("#emptyCart").style.display = "block"
+}
+else
+{
+    document.querySelector("main").style.display = "block"
+}
 
+let totalPrice = 0
+let order_id
 
 
 
@@ -30,22 +37,23 @@ inStorage.forEach(element => {
 
         cart = document.createElement("article")
         cart.id = element.id
-        title = document.createElement("h2")
-        title.innerHTML = data.name
+
+
 
         img = document.createElement("img")
         img.src = data.imageUrl
 
-        quantityDom = document.createElement("p")
-        quantityDom.innerHTML = quantity
+
+        titleContainer = document.createElement("h2")
+        titleContainer.innerHTML = quantity + " x " + data.name
         
         delElement = document.createElement("button")
         delElement.innerHTML = "Suprimer l'article du panier"
 
-        cart.appendChild(title)
-        cart.appendChild(quantityDom)
-        cart.appendChild(delElement)
+
+        cart.appendChild(titleContainer)
         cart.appendChild(img)
+        cart.appendChild(delElement)
 
         delElement.addEventListener("click", () => {
             const inStorage = JSON.parse(localStorage.getStorage);
@@ -140,18 +148,22 @@ document.querySelector("#formCart").addEventListener("submit", async (event) => 
 
     order.contact = contact;
 
+
+
+
     if(checkContact(contact)) {
+        
         const sendOrder = await postServer(order);
         confirmationPage(sendOrder)
-        
-           
+
     }
 
 });
 
 const confirmationPage = async (order) => {
 
-    console.log(order)
+
     let urlData = 'confirmation.html?'+"id="+order.orderId+"&"+"total="+totalPrice
     window.location = urlData
+    localStorage.clear()
 }

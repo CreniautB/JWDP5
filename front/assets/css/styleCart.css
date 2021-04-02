@@ -1,4 +1,124 @@
+* {
+  font-family: 'Rubik', sans-serif;
+}
+
+#emptyCart {
+  display: none;
+  width: 500px;
+  margin: auto;
+  margin-top: 5em;
+  text-align: center;
+}
+
+#emptyCart h1 {
+  margin-bottom: 2em;
+}
+
+#emptyCart a {
+  border: 3px solid #8f5bfe;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(4%, #8f5bfe), to(#ba7284));
+  background: linear-gradient(to bottom right, #8f5bfe 4%, #ba7284 100%);
+  color: white;
+  padding: 1em;
+  text-decoration: none;
+}
+
 img {
   width: 200px;
+}
+
+#titleCart {
+  text-align: center;
+}
+
+main #articleContainer {
+  width: 80%;
+  margin: auto;
+}
+
+main #articleContainer #cartContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main #articleContainer article {
+  text-align: center;
+  width: 300px;
+}
+
+main #articleContainer article img {
+  margin-bottom: 1em;
+}
+
+main #articleContainer article button {
+  border: 3px solid #8f5bfe;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(4%, #8f5bfe), to(#ba7284));
+  background: linear-gradient(to bottom right, #8f5bfe 4%, #ba7284 100%);
+  color: white;
+  padding: 1em;
+}
+
+main #titlePrice {
+  text-align: center;
+}
+
+main #formContainer {
+  width: 60%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+}
+
+main #formContainer form {
+  margin-top: 2em;
+  width: 400px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main #formContainer form label {
+  margin: 10px 0 10px 0;
+}
+
+main #formContainer form input {
+  padding: 0.4em;
+}
+
+main #formContainer form #sub {
+  border: 3px solid white;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(4%, #8f5bfe), to(#ba7284));
+  background: linear-gradient(to bottom right, #8f5bfe 4%, #ba7284 100%);
+  color: white;
+  padding: 1em;
+  margin-top: 1em;
+}
+
+main #formContainer form input::-webkit-input-placeholder {
+  display: none;
+}
+
+main #formContainer form input:-ms-input-placeholder {
+  display: none;
+}
+
+main #formContainer form input::-ms-input-placeholder {
+  display: none;
+}
+
+main #formContainer form input::placeholder {
+  display: none;
 }
 /*# sourceMappingURL=styleCart.css.map */
