@@ -1,6 +1,4 @@
-
-let product_id = window.location.search.substr(4);
-
+const product_id = window.location.search.substr(4);
 
 fetch(`http://localhost:3000/api/teddies/${product_id}`)
 .then((response) => {
@@ -54,45 +52,54 @@ fetch(`http://localhost:3000/api/teddies/${product_id}`)
     teddyPrice = data.price 
     document.querySelector("#price").innerHTML = teddyPrice + " €"
 
+}).catch((error) =>  {
+    errordisplayed();
 });
 
 
 /** Enregistrement dans le Panier */
 const productQuantity = () => {
-    let quantity = document.getElementById('product-quantity').value;
-    return quantity;
+    try {
+        let quantity = document.getElementById('product-quantity').value;
+        return quantity;
+    } catch (error)  {
+        errordisplayed();
+    }
 };
 
 const storageControl = () => {
-    const produitLocal = { id: product_id, quantity: productQuantity() };
-    let createNewStorage = [];
-    let StorageLength = localStorage.length;
+    try {
+        const produitLocal = { id: product_id, quantity: productQuantity() };
+        let createNewStorage = [];
+        let StorageLength = localStorage.length;
 
-    //controle si le panier n'est pas vide
-    if (StorageLength !== 0 && localStorage.getStorage) {
-        let inStorage = JSON.parse(localStorage.getStorage);
-        let existe = false;
+        /** controle si le panier n'est pas vide */
+        if (StorageLength !== 0 && localStorage.getStorage) {
+            let inStorage = JSON.parse(localStorage.getStorage);
+            let existe = false;
 
-        //controle si le produit est deja dans le panier
-        //si oui, il update simplement la quantité
-        //autrement il le rajoute au panier
-        inStorage.map(produit => {
-            if (produit.id == product_id) {
-                existe = true;
-                produit.quantity = productQuantity();
+            /** si l'article n'est pas présent dans le panier il l'ajoute */
+
+            inStorage.map(produit => {
+                if (produit.id == product_id) {
+                    existe = true;
+                    produit.quantity = productQuantity();
+                }
+            });
+
+            if (existe) {
+                return JSON.stringify(inStorage);
+            } else {
+                inStorage.push(produitLocal);
+                return JSON.stringify(inStorage);
             }
-        });
 
-        if (existe) {
-            return JSON.stringify(inStorage);
         } else {
-            inStorage.push(produitLocal);
-            return JSON.stringify(inStorage);
+            createNewStorage.push(produitLocal);
+            return JSON.stringify(createNewStorage);
         }
-
-    } else {
-        createNewStorage.push(produitLocal);
-        return JSON.stringify(createNewStorage);
+    } catch (error)  {
+        errordisplayed();
     }
 
 };

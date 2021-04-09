@@ -1,8 +1,3 @@
-body {
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(4%, #d4803d), to(#8f5bfe));
-  background: linear-gradient(to bottom right, #d4803d 4%, #8f5bfe 100%);
-}
-
 main {
   width: 60%;
   margin: auto;

@@ -1,8 +1,9 @@
 body {
   margin: 0;
   padding: 0;
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(4%, #d4803d), to(#8f5bfe));
-  background: linear-gradient(to bottom right, #d4803d 4%, #8f5bfe 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(50%, rgba(212, 128, 61, 0.8)), to(rgba(143, 91, 254, 0.8)));
+  background: linear-gradient(to bottom right, rgba(212, 128, 61, 0.8) 50%, rgba(143, 91, 254, 0.8) 100%);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 header {
@@ -31,6 +32,21 @@ header h1 {
   color: black;
   margin-bottom: 0;
   font-size: 20px;
+}
+
+.errorContainer {
+  width: 50%;
+  margin: auto;
+  margin-top: 5em;
+  background-color: #fff5fd;
+  border-radius: 2em;
+  text-align: center;
+  padding-bottom: 2em;
+  padding: 1em;
+}
+
+.errorContainer * {
+  font-family: 'Rubik', sans-serif;
 }
 
 @media screen and (max-width: 700px) {

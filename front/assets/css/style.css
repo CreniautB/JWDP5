@@ -22,7 +22,6 @@ main section {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   background-color: #fff5fd;
-  border: 5px #f3e9f1 solid;
 }
 
 main section a {
@@ -44,6 +43,7 @@ main section a {
 main section a .cartSide {
   width: 60%;
   text-align: center;
+  padding-bottom: 0.5em;
 }
 
 main section a .cartSide p {
@@ -94,7 +94,6 @@ main section a .imgColor figcaption {
 main section a .imgColor img {
   width: 150px;
   border-radius: 5px;
-  border: 5px #f3e9f1 solid;
 }
 
 @media screen and (max-width: 1550px) {

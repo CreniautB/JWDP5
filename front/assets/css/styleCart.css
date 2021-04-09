@@ -1,7 +1,3 @@
-* {
-  font-family: 'Rubik', sans-serif;
-}
-
 #emptyCart {
   display: none;
   width: 500px;
@@ -31,6 +27,10 @@ img {
   text-align: center;
 }
 
+main {
+  font-family: 'Rubik', sans-serif;
+}
+
 main #articleContainer {
   width: 80%;
   margin: auto;
@@ -57,6 +57,7 @@ main #articleContainer article img {
 
 main #articleContainer article button {
   border: 3px solid #8f5bfe;
+  border-radius: 5px;
   background: -webkit-gradient(linear, left top, right bottom, color-stop(4%, #8f5bfe), to(#ba7284));
   background: linear-gradient(to bottom right, #8f5bfe 4%, #ba7284 100%);
   color: white;
@@ -67,6 +68,10 @@ main #titlePrice {
   text-align: center;
 }
 
+main #titlePrice h1 {
+  font-size: 20px;
+}
+
 main #formContainer {
   width: 60%;
   margin: auto;
@@ -74,6 +79,7 @@ main #formContainer {
   display: -ms-flexbox;
   display: flex;
   text-align: center;
+  margin-bottom: 2em;
 }
 
 main #formContainer form {
@@ -94,14 +100,19 @@ main #formContainer form label {
 }
 
 main #formContainer form input {
-  padding: 0.4em;
+  width: 80%;
+  margin: auto;
+  border: 1px solid #8f5bfe;
+  padding: 0.8em;
+  border-radius: 5px;
 }
 
 main #formContainer form #sub {
-  border: 3px solid white;
+  border: 3px solid #8f5bfe;
   background: -webkit-gradient(linear, left top, right bottom, color-stop(4%, #8f5bfe), to(#ba7284));
   background: linear-gradient(to bottom right, #8f5bfe 4%, #ba7284 100%);
   color: white;
+  border-radius: 5px;
   padding: 1em;
   margin-top: 1em;
 }

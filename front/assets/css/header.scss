@@ -4,8 +4,8 @@ body
 {
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom right, #d4803d 4%, #8f5bfe 100%);
-
+    background: linear-gradient(to bottom right, rgba(212, 128, 61, 0.8) 50%, rgba(143, 91, 254, 0.8) 100%);
+    background-color: rgba($color: #000000, $alpha: 0.5);
 }
 
 
@@ -40,6 +40,26 @@ header
 
 
 }
+
+.errorContainer
+{
+    width: 50%;
+    margin: auto;
+    margin-top: 5em;
+    background-color: $darker;
+    border-radius: 2em;
+    text-align: center;
+    padding-bottom: 2em;
+    padding: 1em;
+    *
+    {
+        font-family: 'Rubik', sans-serif;
+    }
+}
+
+
+
+
 
 @media screen and (max-width: 700px)
 {

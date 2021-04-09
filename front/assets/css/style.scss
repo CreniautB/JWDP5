@@ -25,7 +25,6 @@ main
         margin-top: 1.5em;
         flex-wrap: wrap;
         background-color: $darker;
-        border: 5px $light solid;
 
         a
         {
@@ -44,6 +43,7 @@ main
             {
                 width: 60%;
                 text-align: center;
+                padding-bottom: 0.5em;
 
                 p 
                 {
@@ -98,7 +98,7 @@ main
                 {
                     width: 150px;
                     border-radius: 5px;
-                    border: 5px $light solid;
+
                 }
             }
 

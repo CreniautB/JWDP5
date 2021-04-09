@@ -3,7 +3,6 @@ fetch('http://localhost:3000/api/teddies')
 .then((response) => {
     return response.json()
 })
-
 .then ((data) => {
 
     const model = document.querySelector("#model")
@@ -51,5 +50,6 @@ fetch('http://localhost:3000/api/teddies')
             clone.querySelector("ul").appendChild(colorsContainer);
         };  
     });
-})
-
+  }).catch((error) => {
+    errordisplayed();
+  });
