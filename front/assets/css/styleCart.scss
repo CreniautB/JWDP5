@@ -1,4 +1,6 @@
-
+$light : #f3e9f1;
+$darker : #fff5fd;
+$rale : 'Raleway', sans-serif;
 #emptyCart
 {
     display: none;
@@ -6,6 +8,7 @@
     margin: auto;
     margin-top: 5em;
     text-align: center;
+    font-family: $rale;
     
     h1 
     {
@@ -24,6 +27,7 @@
 img
 {
     width: 200px;
+    height: 140px;
 }        
 #titleCart
 {
@@ -32,7 +36,10 @@ img
 
 main 
 {
-    font-family: 'Rubik', sans-serif;
+
+    
+    font-family: $rale;
+    
     #articleContainer 
     {
         width: 80%;
@@ -55,8 +62,9 @@ main
             }
             button 
             {
-                border: 3px solid #8f5bfe;
-                border-radius: 5px;
+                border:solid 2.5px $light;
+                box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+                border-radius: 110px 15px 120px 15px/15px 120px 15px 110px;
                 background: linear-gradient(to bottom right, #8f5bfe 4%, #ba7284 100%);
                 color: white;
                 padding: 1em;

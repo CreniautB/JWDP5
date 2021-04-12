@@ -2,6 +2,21 @@
   display: none;
 }
 
+.mainTitle {
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  text-align: center;
+  border: solid 2.5px #41403E;
+  -webkit-box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
+          box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  width: 300px;
+  margin: auto;
+  background-color: #fff5fd;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
 main {
   width: 85%;
   margin: auto;
@@ -12,88 +27,73 @@ main {
       justify-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding-bottom: 1em;
 }
 
-main section {
-  width: 30%;
+main .card {
+  width: 160px;
   border-radius: 5px;
   margin-top: 1.5em;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  background-color: #fff5fd;
-}
-
-main section a {
-  font-family: 'Rubik', sans-serif;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(50%, #f3e9f1), to(#fff5fd));
+  background: linear-gradient(to bottom right, #f3e9f1 50%, #fff5fd 100%);
+  background-color: rgba(0, 0, 0, 0.5);
   font-weight: 300;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 90%;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  text-decoration: none;
   color: black;
   margin: auto;
-}
-
-main section a .cartSide {
-  width: 60%;
+  text-decoration: none;
   text-align: center;
-  padding-bottom: 0.5em;
+  padding: 1em;
+  margin: 0.5em;
 }
 
-main section a .cartSide p {
-  text-align: center;
+main .card figure {
+  margin: 0;
 }
 
-main section a .cartSide ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  list-style-type: none;
-  padding: 0;
-  margin: 0.3em;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-main section a .cartSide ul .squares {
-  width: 13px;
-  height: 13px;
-  border-radius: 2px;
-  margin: auto;
-  margin-bottom: 0.2em;
-  border: 1.5px solid black;
-}
-
-main section a .cartSide ul li {
-  margin-right: 0.5em;
-  margin-bottom: 0.5em;
-  font-size: 13px;
-}
-
-main section a .cartSide .price {
-  font-weight: 500;
-  font-size: 13px;
-  text-align: center;
-  width: 100%;
-}
-
-main section a .imgColor figcaption {
+main .card figcaption {
   font-weight: 700;
   text-align: center;
   margin-bottom: 1em;
 }
 
-main section a .imgColor img {
+main .card img {
   width: 150px;
   border-radius: 5px;
+  height: 97px;
+}
+
+main .card .titleCouleur {
+  font-size: 12px;
+}
+
+main .card ul {
+  width: 50%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 0.2em;
+}
+
+main .card ul .squares {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  margin: auto;
+  margin-bottom: 0.2em;
+  border: 0.2px solid black;
+}
+
+main .card .price {
+  font-weight: 500;
+  font-size: 12px;
+  text-align: center;
+  width: 100%;
 }
 
 @media screen and (max-width: 1550px) {
@@ -122,6 +122,10 @@ main section a .imgColor img {
 }
 
 @media screen and (max-width: 700px) {
+  .mainTitle {
+    width: 70%;
+    font-size: 25px;
+  }
   section {
     width: 90% !important;
   }

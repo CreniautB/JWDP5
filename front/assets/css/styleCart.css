@@ -4,6 +4,7 @@
   margin: auto;
   margin-top: 5em;
   text-align: center;
+  font-family: "Raleway", sans-serif;
 }
 
 #emptyCart h1 {
@@ -21,6 +22,7 @@
 
 img {
   width: 200px;
+  height: 140px;
 }
 
 #titleCart {
@@ -28,7 +30,7 @@ img {
 }
 
 main {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 main #articleContainer {
@@ -56,8 +58,10 @@ main #articleContainer article img {
 }
 
 main #articleContainer article button {
-  border: 3px solid #8f5bfe;
-  border-radius: 5px;
+  border: solid 2.5px #f3e9f1;
+  -webkit-box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
+          box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
+  border-radius: 110px 15px 120px 15px/15px 120px 15px 110px;
   background: -webkit-gradient(linear, left top, right bottom, color-stop(4%, #8f5bfe), to(#ba7284));
   background: linear-gradient(to bottom right, #8f5bfe 4%, #ba7284 100%);
   color: white;

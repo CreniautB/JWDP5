@@ -15,10 +15,10 @@ fetch(`http://localhost:3000/api/teddies/${product_id}`)
 
     /** Ratio Couleurs Produit */
     for ( let i = 0; i < data.colors.length; i++) {
-        var colorsName = document.createElement("div");
-        var colorsSquare = document.createElement("div")
+        const colorsName = document.createElement("div");
+        const colorsSquare = document.createElement("div")
 
-        var colorsContainer = document.createElement("LI")
+        const colorsContainer = document.createElement("LI")
 
         colorsSquare.style.backgroundColor = data.colors[i]
         colorsSquare.classList.add("squares")

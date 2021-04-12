@@ -1,9 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(50%, rgba(212, 128, 61, 0.8)), to(rgba(143, 91, 254, 0.8)));
-  background: linear-gradient(to bottom right, rgba(212, 128, 61, 0.8) 50%, rgba(143, 91, 254, 0.8) 100%);
-  background-color: rgba(0, 0, 0, 0.5);
 }
 
 header {
@@ -16,12 +13,13 @@ header {
   padding: 2em;
   padding-top: 0;
   padding-bottom: 0;
-  font-family: 'Syne Mono', monospace;
+  font-family: "Raleway", sans-serif;
 }
 
 header #logo {
-  width: 100px;
+  width: 150px;
   height: auto;
+  vertical-align: middle;
 }
 
 header a {
@@ -32,6 +30,19 @@ header h1 {
   color: black;
   margin-bottom: 0;
   font-size: 20px;
+  margin: 0;
+}
+
+header #cartIcon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header #cartIcon span {
+  margin-left: 2px;
+  color: black;
+  font-weight: 900;
 }
 
 .errorContainer {
@@ -43,18 +54,40 @@ header h1 {
   text-align: center;
   padding-bottom: 2em;
   padding: 1em;
-}
-
-.errorContainer * {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 @media screen and (max-width: 700px) {
+  header h1 {
+    margin-top: 0.9em;
+  }
   header img {
-    width: 150px;
+    width: 100px !important;
+    height: auto;
   }
   header h1 {
     font-size: 15px;
   }
+}
+
+/** Font-Family */
+figcaption {
+  font-family: "Raleway", sans-serif;
+}
+
+.titleCouleur {
+  font-family: "Raleway", sans-serif;
+}
+
+.price {
+  font-family: "Raleway", sans-serif;
+}
+
+#teddyH1 {
+  font-family: "Raleway", sans-serif;
+}
+
+#teddyPara {
+  font-family: "Raleway", sans-serif;
 }
 /*# sourceMappingURL=header.css.map */

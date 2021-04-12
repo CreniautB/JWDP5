@@ -1,110 +1,109 @@
 $light : #f3e9f1;
 $darker : #fff5fd;
+$rale : 'Raleway', sans-serif;
 
 #model
 {
     display: none;
 }
+.mainTitle
+{
+    font-family: $rale;
+    font-weight: 300;
+    text-align: center;
+    border:solid 2.5px #41403E;
+    box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    width: 300px;
+    margin: auto;
+    background-color: $darker;
+    margin-bottom: 1em;
+    margin-top: 1em;
+
+}
 
 
 main
 {
-
+    
     width: 85%;
     margin: auto;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding-bottom: 1em;
 
 
-    section
+    .card
     {
-        width: 30%;
+        width: 160px;
         border-radius: 5px;
         margin-top: 1.5em;
-        flex-wrap: wrap;
-        background-color: $darker;
+        background: linear-gradient(to bottom right, $light 50%,$darker 100%);
+        background-color: rgba($color: #000000, $alpha: 0.5);
+        font-weight: 300;
+        color: black;
+        margin: auto;
+        text-decoration: none;
+        text-align: center;
+        padding: 1em;
+        margin: 0.5em;
+        
 
-        a
+        figure 
         {
-            font-family: 'Rubik', sans-serif;
-            font-weight: 300;
-            display: flex;
-            width: 90%;
-            flex-direction: row;
-            text-decoration: none;
-            color: black;
+            margin: 0;
+        }
+        figcaption
+        {
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1em;
+        }
+        img
+        {
+            width: 150px;
+            border-radius: 5px;
+            height: 97px;
+        }
+        .titleCouleur
+        {
+            font-size: 12px;
+        }
+        ul 
+        {
+            width: 50%;
             margin: auto;
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 0.2em;
 
-
-            
-            .cartSide
+            .squares
             {
-                width: 60%;
-                text-align: center;
-                padding-bottom: 0.5em;
-
-                p 
-                {
-                    text-align: center;
-                }
-                ul 
-                {
-
-                    display: flex;
-                    list-style-type: none;
-                    padding: 0;
-                    margin: 0.3em;
-                    flex-wrap: wrap;
-                    justify-content: space-around;
-
-                    .squares
-                    {
-                        width: 13px;
-                        height: 13px;
-                        border-radius: 2px;
-                        margin: auto;
-                        margin-bottom: 0.2em;
-                        border: 1.5px solid black;
-                    }
-
-                    li
-                    {
-                        margin-right: 0.5em;
-                        margin-bottom: 0.5em;
-                        font-size: 13px;
-                    }
-                }
-
-                .price
-                {
-                    font-weight: 500;
-                    font-size: 13px;
-                    text-align: center;
-                    width: 100%;
-                }
-            }
-
-            .imgColor
-            {
-                figcaption
-                {
-                    font-weight: 700;
-                    text-align: center;
-                    margin-bottom: 1em;
-                }
-                img
-                {
-                    width: 150px;
-                    border-radius: 5px;
-
-                }
+                width: 13px;
+                height: 13px;
+                border-radius: 50%;
+                margin: auto;
+                margin-bottom: 0.2em;
+                border: 0.2px solid black;
             }
 
         }
-    }
-}
+
+            .price
+            {
+                font-weight: 500;
+                font-size: 12px;
+                text-align: center;
+                width: 100%;
+         
+            }
+        }
+
+        }
+    
 
 @media screen and (max-width : 1550px)
 {
@@ -142,6 +141,11 @@ main
 }
 @media screen and (max-width: 700px)
 {
+    .mainTitle
+    {
+        width: 70%;
+        font-size: 25px;
+    }
 
     section
     {
@@ -149,3 +153,4 @@ main
     }
 
 }
+

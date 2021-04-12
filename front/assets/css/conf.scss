@@ -1,4 +1,4 @@
-
+$rale : 'Raleway', sans-serif;
 main
 {
     text-align: center;
@@ -9,6 +9,8 @@ main
     width: 60%;
     margin: auto;
     padding: 5em;
+    font-family: $rale;
+
 }
 h3 
 {

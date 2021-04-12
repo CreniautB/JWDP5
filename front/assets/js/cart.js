@@ -1,3 +1,4 @@
+
 const inStorage = JSON.parse(localStorage.getStorage);
 
 /** Affichage ou non du formulaire si panier vide  */
@@ -33,7 +34,7 @@ inStorage.forEach(element => {
         getPrice = data.price * quantity
         totalPrice += getPrice
 
-        document.querySelector("#totalPrice").innerHTML = "Total de la commance :" + totalPrice + " €"
+        document.querySelector("#totalPrice").innerHTML = "Total de la commance : " + totalPrice + " €"
 
         /** Récap Panier */
 
@@ -59,7 +60,7 @@ inStorage.forEach(element => {
 
         delElement.addEventListener("click", () => {
             const inStorage = JSON.parse(localStorage.getStorage);
-            inStorage.map(teddie => {
+            inStorage.forEach(teddie => {
                 
                 parent = delElement.parentElement
                 
@@ -82,7 +83,7 @@ inStorage.forEach(element => {
 
 /** F vérification des valeurs de contact via regex */
 
-function checkContact(contact){
+const checkContact = async (contact) => {
 
     try {
     const expName = /^(([a-zA-ZÀ-Ýà-ï]+)(-| )?){1,2}[a-zA-ZÀ-Ýà-ï]+$/;
@@ -192,3 +193,4 @@ const confirmationPage = async (order) => {
         errordisplayed();
     }
 }
+
