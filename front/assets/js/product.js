@@ -1,4 +1,6 @@
-const product_id = window.location.search.substr(4);
+const productId = new URLSearchParams(window.location.search)
+
+const product_id = productId.getAll("id")[0]
 
 fetch(`http://localhost:3000/api/teddies/${product_id}`)
 .then((response) => {
@@ -14,20 +16,21 @@ fetch(`http://localhost:3000/api/teddies/${product_id}`)
 
 
     /** Ratio Couleurs Produit */
-    for ( let i = 0; i < data.colors.length; i++) {
+    data.colors.forEach(colors => {
+        
         const colorsName = document.createElement("div");
         const colorsSquare = document.createElement("div")
 
         const colorsContainer = document.createElement("LI")
 
-        colorsSquare.style.backgroundColor = data.colors[i]
+        colorsSquare.style.backgroundColor = colors;
         colorsSquare.classList.add("squares")
-        colorsName.innerHTML = data.colors[i];    
+        colorsName.innerHTML = colors; 
         
-        if ( data.colors[i] === "Pale brown"){
+        if ( colors === "Pale brown"){
             colorsSquare.style.backgroundColor = "burlywood"
         }
-        else if ( data.colors[i] === "Dark brown"){
+        else if ( colors === "Dark brown"){
             colorsSquare.style.backgroundColor = "#654321"
         }
 
@@ -35,19 +38,18 @@ fetch(`http://localhost:3000/api/teddies/${product_id}`)
         colorsContainer.appendChild(colorsName)
 
         document.querySelector("#radioSection").appendChild(colorsContainer)
-    };
+    });
 
 
     const selectColor = document.querySelector("#whichColors")
 
-    for ( let i = 0 ; i < data.colors.length; i++){
+    data.colors.forEach(colors => {
         const option = document.createElement("option")
-        option.value = data.colors[i]
-        option.innerHTML = data.colors[i]
-
-
+        option.value = colors
+        option.innerHTML = colors
         selectColor.appendChild(option)
-    }
+    })
+
 
     teddyPrice = data.price 
     document.querySelector("#price").innerHTML = teddyPrice + " €"
@@ -57,25 +59,22 @@ fetch(`http://localhost:3000/api/teddies/${product_id}`)
 });
 
 
-/** Enregistrement dans le Panier */
-const productQuantity = () => {
-    try {
-        let quantity = document.getElementById('product-quantity').value;
-        return quantity;
-    } catch (error)  {
-        errordisplayed();
-    }
-};
+
+
+
+
 
 const storageControl = () => {
     try {
+        
         const produitLocal = { id: product_id, quantity: productQuantity() };
+        console.log(produitLocal)
         let createNewStorage = [];
         let StorageLength = localStorage.length;
 
         /** controle si le panier n'est pas vide */
-        if (StorageLength !== 0 && localStorage.getStorage) {
-            let inStorage = JSON.parse(localStorage.getStorage);
+        if (StorageLength !== 0 && localStorage.article) {
+            let inStorage = JSON.parse(localStorage.article);
             let existe = false;
 
             /** si l'article n'est pas présent dans le panier il l'ajoute */
@@ -104,8 +103,16 @@ const storageControl = () => {
 
 };
 
-
-
+/** Enregistrement dans le Panier */
+const productQuantity = () => {
+    try {
+        let quantity = document.getElementById('product-quantity').value;
+        return quantity;
+    } catch (error)  {
+        let msg = "probleme de "
+        errordisplayed(msg);
+    }
+};
 
 
 

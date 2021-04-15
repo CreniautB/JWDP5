@@ -7,13 +7,21 @@ const widgetQuantities = async (quantities) => {
 };
 
 const getQuantities = async () => {
-    const inStorage = JSON.parse(localStorage.getStorage);
-    return await Promise.all(inStorage.map(produit => {
-        return produit
-    }));
+
+    if (localStorage.article){
+        inStorage = JSON.parse(localStorage.article);
+        return await Promise.all(inStorage.map(produit => {
+            return produit
+        }));
+    }
+    else 
+    {
+        return  0
+    }
+    
 };
 
-if (localStorage.getStorage) {
+if (localStorage.article) {
     widgetQuantities();
 };
 

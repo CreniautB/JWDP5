@@ -24,25 +24,26 @@ fetch('http://localhost:3000/api/teddies')
         let urlData = 'product.html?'+"id="+clone.id
         clone.href = urlData
         
-
-        for ( let i = 0; i < element.colors.length; i++) {
+        element.colors.forEach(colors => {
 
             const colorsSquare = document.createElement("div")
 
             const colorsContainer = document.createElement("LI")
 
-            colorsSquare.style.backgroundColor = element.colors[i]
+            colorsSquare.style.backgroundColor = colors
             colorsSquare.classList.add("squares")
-            
-            if ( element.colors[i] === "Pale brown"){
+            if ( colors === "Pale brown"){
                 colorsSquare.style.backgroundColor = "burlywood"
             }
-            else if ( element.colors[i] === "Dark brown"){
+            else if ( colors === "Dark brown"){
                 colorsSquare.style.backgroundColor = "#654321"
             }
             colorsContainer.appendChild(colorsSquare)
 
             clone.querySelector("ul").appendChild(colorsContainer);
-        };  
+        });
     });
-  })
+  }).catch((error) =>  {
+      let msg = "connexion au serveur pour le fetch compromise"
+    errordisplayed(msg);
+});

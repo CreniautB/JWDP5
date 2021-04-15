@@ -6,7 +6,7 @@
   font-family: "Raleway", sans-serif;
   font-weight: 300;
   text-align: center;
-  border: solid 2.5px #41403E;
+  border: solid 1.5px #41403E;
   -webkit-box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
           box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
@@ -15,10 +15,12 @@
   background-color: #fff5fd;
   margin-bottom: 1em;
   margin-top: 1em;
+  padding: 0.2em;
+  font-weight: 500;
 }
 
 main {
-  width: 85%;
+  width: 90%;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -30,7 +32,7 @@ main {
 }
 
 main .card {
-  width: 160px;
+  width: 220px;
   border-radius: 5px;
   margin-top: 1.5em;
   background: -webkit-gradient(linear, left top, right bottom, color-stop(50%, #f3e9f1), to(#fff5fd));
@@ -45,6 +47,15 @@ main .card {
   margin: 0.5em;
 }
 
+main .card:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: ease-in-out;
+  transition: ease-in-out;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+
 main .card figure {
   margin: 0;
 }
@@ -53,16 +64,13 @@ main .card figcaption {
   font-weight: 700;
   text-align: center;
   margin-bottom: 1em;
+  font-size: 24px;
 }
 
 main .card img {
   width: 150px;
   border-radius: 5px;
   height: 97px;
-}
-
-main .card .titleCouleur {
-  font-size: 12px;
 }
 
 main .card ul {
@@ -86,12 +94,15 @@ main .card ul .squares {
   border-radius: 50%;
   margin: auto;
   margin-bottom: 0.2em;
-  border: 0.2px solid black;
+  border: solid 1.5px black;
+  -webkit-box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
+          box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
+  border-radius: 15px 110px  15px 120px/ 120px 15px  110px 15px;
 }
 
 main .card .price {
   font-weight: 500;
-  font-size: 12px;
+  font-size: 21px;
   text-align: center;
   width: 100%;
 }

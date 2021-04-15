@@ -14,10 +14,8 @@ main
     border-radius: 110px 15px 120px 15px/15px 120px 15px 110px;
     margin-top: 2em;
     margin-bottom: 1em;
-    *
-    {
-        font-family: $rale;
-    }
+    font-family: $rale;
+    
 }
 
 
@@ -41,7 +39,7 @@ main
     #radioSection
     {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         list-style-type: none;
         text-align: center;
         padding: 0;
@@ -59,8 +57,9 @@ main
         {
             width: 20px;
             height: 20px;
-            border-radius: 50%;
-            border: 1.5px solid black;
+            border:solid 1.5px black;
+            box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+            border-radius:  15px 110px  15px 120px/ 120px 15px  110px 15px;
             margin: auto;
             margin-bottom: 0.9em;
         }
@@ -103,7 +102,7 @@ main
         
         select,  #add-cart
         {
-            background-color: white;
+            background-color: $darker;
             font-size: 15px;
             padding: 0.5em;
             border:solid 2.5px black;
@@ -112,7 +111,7 @@ main
             font-weight: 500;
             option 
             {
-                background-color: white;
+                background-color: $darker;
             }
         }
 

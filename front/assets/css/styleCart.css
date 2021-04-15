@@ -12,12 +12,16 @@
 }
 
 #emptyCart a {
-  border: 3px solid #8f5bfe;
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(4%, #8f5bfe), to(#ba7284));
-  background: linear-gradient(to bottom right, #8f5bfe 4%, #ba7284 100%);
-  color: white;
+  border: solid 1.5px #41403E;
+  -webkit-box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
+          box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  background-color: #f3e9f1;
+  font-weight: 600;
   padding: 1em;
+  color: black;
   text-decoration: none;
+  font-size: 20px;
 }
 
 img {
@@ -135,5 +139,11 @@ main #formContainer form input::-ms-input-placeholder {
 
 main #formContainer form input::placeholder {
   display: none;
+}
+
+@media screen and (max-width: 500px) {
+  #emptyCart {
+    width: 200px;
+  }
 }
 /*# sourceMappingURL=styleCart.css.map */

@@ -17,11 +17,15 @@ $rale : 'Raleway', sans-serif;
 
     a 
     {
-        border: 3px solid #8f5bfe;
-        background: linear-gradient(to bottom right, #8f5bfe 4%, #ba7284 100%);
-        color: white;
+        border:solid 1.5px #41403E;
+        box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+        border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+        background-color: $light;
+        font-weight: 600;
         padding: 1em;
+        color: black;
         text-decoration: none;
+        font-size: 20px;
     }
 }
 img
@@ -128,4 +132,11 @@ main
         
     }
 
+}
+
+@media screen and (max-width : 500px) {
+    #emptyCart
+    {
+        width: 200px;
+    }
 }

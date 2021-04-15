@@ -1,5 +1,10 @@
+/** Génere un objet vide */
+if (!localStorage.article)
+{
+    localStorage.setItem('article', quantity=0)
+}
 
-const inStorage = JSON.parse(localStorage.getStorage);
+let inStorage = JSON.parse(localStorage.article);
 
 /** Affichage ou non du formulaire si panier vide  */
 
@@ -14,12 +19,13 @@ else{
 let totalPrice = 0
 let order_id
 
-
 /** récuperation des données pour la commande */
 inStorage.forEach(element => {
 
     let quantity = element.quantity
     let getPrice
+
+
 
     fetch(`http://localhost:3000/api/teddies/${element.id}`)
     .then((response) => {
@@ -59,7 +65,7 @@ inStorage.forEach(element => {
         /** Event de supression de l'article a partir du panier, modification local storage */
 
         delElement.addEventListener("click", () => {
-            const inStorage = JSON.parse(localStorage.getStorage);
+            const inStorage = JSON.parse(localStorage.article);
             inStorage.forEach(teddie => {
                 
                 parent = delElement.parentElement
@@ -69,7 +75,7 @@ inStorage.forEach(element => {
                     if (index > -1) {
                         inStorage.splice(index, 1);
                         let newDataStorage = JSON.stringify(inStorage);
-                        localStorage.setItem(`getStorage`, `${newDataStorage}`);
+                        localStorage.setItem(`article`, `${newDataStorage}`);
                         location.reload()
                     }
                 }
@@ -81,42 +87,7 @@ inStorage.forEach(element => {
     })
 });
 
-/** F vérification des valeurs de contact via regex */
 
-const checkContact = async (contact) => {
-
-    try {
-    const expName = /^(([a-zA-ZÀ-Ýà-ï]+)(-| )?){1,2}[a-zA-ZÀ-Ýà-ï]+$/;
-    const expAdress = /^([\wÀ-Ýà-ï]+ ?)+[\wÀ-Ýà-ï]$/;
-    const expEmail = /^[\w](([_\.\-]?[\w]+)*)@([\w]+)(([_\.\-]?[\w]+)*)\.([\w]{2,})$/
-
-    if (!expName.test(contact.firstName)){
-        alert("le prénom n'est pas valide")
-        return false
-    }
-    if (!expName.test(contact.lastName)){
-        alert("le nom n'est pas valide")
-        return false
-    }
-    if(!expAdress.test(contact.address)){
-        alert("l'adresse n'est pas valide")
-        return false
-    }
-    if(!expName.test(contact.city)){
-        alert("la ville n'est pas valide")
-        return false
-    }
-    if(!expEmail.test(contact.email)){
-        alert("l'email n'est pas valide")
-        return false
-    }
-    else{
-        return true
-    }
- } catch (error)  {
-    errordisplayed();
- }
-}
 
 /** Envoie le commande au server */
 
@@ -167,14 +138,15 @@ document.querySelector("#formCart").addEventListener("submit", async (event) => 
         order.products = productiD;
         order.contact = contact;
 
+ 
 
         /** Vérifie le formulaire via F => checkcontact */
-
         if(checkContact(contact)) {
-            
             const sendOrder = await postServer(order);
             confirmationPage(sendOrder)
         }
+
+
     } catch (error)  {
         errordisplayed();
     }
@@ -194,3 +166,36 @@ const confirmationPage = async (order) => {
     }
 }
 
+/** F vérification des valeurs de contact via regex */
+
+function checkContact(contact){
+
+    const expName = /^(([a-zA-ZÀ-Ýà-ï]+)(-| )?){1,2}[a-zA-ZÀ-Ýà-ï]+$/;
+    const expAdress = /^([\wÀ-Ýà-ï]+ ?)+[\wÀ-Ýà-ï]$/;
+    const expEmail = /^[\w](([_\.\-]?[\w]+)*)@([\w]+)(([_\.\-]?[\w]+)*)\.([\w]{2,})$/
+
+    if (!expName.test(contact.firstName)){
+        alert("le prénom n'est pas valide")
+        return false
+    }
+    if (!expName.test(contact.lastName)){
+        alert("le nom n'est pas valide")
+        return false
+    }
+    if(!expAdress.test(contact.address)){
+        alert("l'adresse n'est pas valide")
+        return false
+    }
+    if(!expName.test(contact.city)){
+        alert("la ville n'est pas valide")
+        return false
+    }
+    if(!expEmail.test(contact.email)){
+        alert("l'email n'est pas valide")
+        return false
+    }
+    else{
+        return true
+    }
+
+}

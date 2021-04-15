@@ -10,14 +10,13 @@ header {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  padding: 2em;
   padding-top: 0;
   padding-bottom: 0;
   font-family: "Raleway", sans-serif;
 }
 
 header #logo {
-  width: 150px;
+  width: 200px;
   height: auto;
   vertical-align: middle;
 }
@@ -29,8 +28,11 @@ header a {
 header h1 {
   color: black;
   margin-bottom: 0;
-  font-size: 20px;
+  font-size: 23x;
   margin: 0;
+  font-size: 25px;
+  margin-top: 1em;
+  font-weight: 500;
 }
 
 header #cartIcon {
@@ -43,6 +45,8 @@ header #cartIcon span {
   margin-left: 2px;
   color: black;
   font-weight: 900;
+  margin-top: 1em;
+  font-family: "Syne Mono", monospace;
 }
 
 .errorContainer {

@@ -1,4 +1,4 @@
-const errordisplayed = async () => {
+const errordisplayed = async (msg) => {
     let errorContainer = document.createElement("div")
     let errorContent = document.createElement("h1")
 
@@ -15,9 +15,9 @@ const errordisplayed = async () => {
     errorContainer.classList.add("errorContainer")
 
     document.querySelector("main").style.display = "none"
+    document.querySelectorAll(".mainTitle").forEach(elem => elem.style.display = "none")
 
     document.querySelector("body").appendChild(errorContainer)
 
-
-
+    console.log(msg)
 };
