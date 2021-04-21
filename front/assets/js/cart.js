@@ -1,91 +1,47 @@
-/** Génere un objet vide */
-if (!localStorage.article)
-{
-    localStorage.setItem('article', quantity=0)
-}
-
-let inStorage = JSON.parse(localStorage.article);
+import Cart from "./cartClass.js"
 
 /** Affichage ou non du formulaire si panier vide  */
+let totalPrice = 0
 
-if ( inStorage.length === 0 || inStorage === 'undefined'){
+if ( localStorage.length === 0 || localStorage === 'undefined'){
     document.querySelector("main").style.display = "none";
     document.querySelector("#emptyCart").style.display = "block"
 }
 else{
+    let inStorage = JSON.parse(localStorage.article);
     document.querySelector("main").style.display = "block"
-}
-
-let totalPrice = 0
-let order_id
-
-/** récuperation des données pour la commande */
-inStorage.forEach(element => {
-
-    let quantity = element.quantity
-    let getPrice
 
 
+    /** récuperation des données pour la commande */
+    inStorage.forEach(element => {
+  
+        let quantity = element.quantity
+        let teddys = []
 
-    fetch(`http://localhost:3000/api/teddies/${element.id}`)
-    .then((response) => {
-        return response.json()
-    })
-
-    /** Création de la page Cart via les données ci dessus  */
-
-    .then ((data) => {
-           
-        /** Calcul et Affichage du prix total */
-        getPrice = data.price * quantity
-        totalPrice += getPrice
-
-        document.querySelector("#totalPrice").innerHTML = "Total de la commance : " + totalPrice + " €"
-
-        /** Récap Panier */
-
-        cart = document.createElement("article")
-        cart.id = element.id
-
-        img = document.createElement("img")
-        img.src = data.imageUrl
-
-
-        titleContainer = document.createElement("h2")
-        titleContainer.innerHTML = quantity + " x " + data.name
-        
-        delElement = document.createElement("button")
-        delElement.innerHTML = "Suprimer l'article du panier"
-
-
-        cart.appendChild(titleContainer)
-        cart.appendChild(img)
-        cart.appendChild(delElement)
-
-        /** Event de supression de l'article a partir du panier, modification local storage */
-
-        delElement.addEventListener("click", () => {
-            const inStorage = JSON.parse(localStorage.article);
-            inStorage.forEach(teddie => {
-                
-                parent = delElement.parentElement
-                
-                if (teddie.id == parent.id) {
-                    const index = inStorage.indexOf(teddie);
-                    if (index > -1) {
-                        inStorage.splice(index, 1);
-                        let newDataStorage = JSON.stringify(inStorage);
-                        localStorage.setItem(`article`, `${newDataStorage}`);
-                        location.reload()
-                    }
-                }
-            });
+        fetch(`http://localhost:3000/api/teddies/${element.id}`)
+        .then((response) => {
+            return response.json()
         })
-        document.querySelector("#cartContent").appendChild(cart) 
-    }).catch((error) => {
-        errordisplayed();
-    })
-});
+
+        /** Création de la page Cart via les données ci dessus  */
+
+        .then ((data) => {
+
+            let price = parseInt(element.quantity) * data.price 
+            totalPrice = totalPrice + price
+            teddys.push(data)
+            data.quantity = quantity
+
+            let cart = new Cart(teddys)         
+            cart.displayTeddy()
+
+        })
+        .then (() => {
+            document.querySelector("#totalPrice").innerHTML = "Total de la commance : " + totalPrice + " €"
+        })
+    });
+
+}
 
 
 
@@ -127,7 +83,7 @@ document.querySelector("#formCart").addEventListener("submit", async (event) => 
         };
         
         let productiD = []
-        id = document.querySelectorAll("article")
+        let id = document.querySelectorAll("article")
 
         id.forEach(element => {
         

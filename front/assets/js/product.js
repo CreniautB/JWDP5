@@ -1,6 +1,9 @@
-const productId = new URLSearchParams(window.location.search)
+import Product from "./productClass.js"
 
+const productId = new URLSearchParams(window.location.search)
 const product_id = productId.getAll("id")[0]
+let priceOneProduct
+let teddy
 
 fetch(`http://localhost:3000/api/teddies/${product_id}`)
 .then((response) => {
@@ -9,66 +12,16 @@ fetch(`http://localhost:3000/api/teddies/${product_id}`)
 
 .then ((data) => {
 
-    /** Création de la page produit */
-    document.querySelector("#teddyH1").innerHTML = data.name  
-    document.querySelector("#teddyImg").src = data.imageUrl
-    document.querySelector("#teddyPara").innerHTML = data.description
-
-
-    /** Ratio Couleurs Produit */
-    data.colors.forEach(colors => {
-        
-        const colorsName = document.createElement("div");
-        const colorsSquare = document.createElement("div")
-
-        const colorsContainer = document.createElement("LI")
-
-        colorsSquare.style.backgroundColor = colors;
-        colorsSquare.classList.add("squares")
-        colorsName.innerHTML = colors; 
-        
-        if ( colors === "Pale brown"){
-            colorsSquare.style.backgroundColor = "burlywood"
-        }
-        else if ( colors === "Dark brown"){
-            colorsSquare.style.backgroundColor = "#654321"
-        }
-
-        colorsContainer.appendChild(colorsSquare)
-        colorsContainer.appendChild(colorsName)
-
-        document.querySelector("#radioSection").appendChild(colorsContainer)
-    });
-
-
-    const selectColor = document.querySelector("#whichColors")
-
-    data.colors.forEach(colors => {
-        const option = document.createElement("option")
-        option.value = colors
-        option.innerHTML = colors
-        selectColor.appendChild(option)
-    })
-
-
-    teddyPrice = data.price 
-    document.querySelector("#price").innerHTML = teddyPrice + " €"
-
-}).catch((error) =>  {
-    errordisplayed();
-});
-
-
-
-
+    teddy = new Product(data.name, data.price, data.imageUrl, data.colors, data._id, data.description)  
+    priceOneProduct = data.price  
+    teddy.displayProduct()
+})
 
 
 
 const storageControl = () => {
     try {
-        
         const produitLocal = { id: product_id, quantity: productQuantity() };
-        console.log(produitLocal)
         let createNewStorage = [];
         let StorageLength = localStorage.length;
 
@@ -114,6 +67,21 @@ const productQuantity = () => {
     }
 };
 
+/** Changement du prix en fonction de la quantité d'article */
 
+document.querySelector("#product-quantity").addEventListener('change', (event) => 
+{
+    let num = document.querySelector("#product-quantity").value
+    document.querySelector("#price").innerHTML = priceOneProduct * num + " €"
 
+})
+
+const addCart = document.getElementById('add-cart');
+
+/** Ajout de l'article dans le panier */
+
+addCart.addEventListener("click", () => {
+    localStorage.setItem(`article`, `${storageControl()}`);
+    widgetQuantities();
+});
 

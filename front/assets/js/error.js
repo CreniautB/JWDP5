@@ -1,4 +1,4 @@
-const errordisplayed = async (msg) => {
+function errordisplayed(msg){
     let errorContainer = document.createElement("div")
     let errorContent = document.createElement("h1")
 
