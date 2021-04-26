@@ -9,10 +9,12 @@ if (localStorage.article){
     /** Creation du panier via son Objet Cart */
 
     let cart = new Cart(inStorage)
+    cart.init()
 
-    /** Méthodes d'affichage et de fonctionnement du panier */
-    
+    // affichage du résumer des produits
     cart.displayTeddy()
+
+    // Gestion du formulaire et de l'envoi des données au server
     cart.formHandler()
 }
 else

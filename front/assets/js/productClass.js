@@ -52,6 +52,7 @@ export default class Product {
 
     displayProduct() {
         /** Création de la page produit */
+        document.querySelector("main").id = this.id
         document.querySelector("#teddyH1").innerHTML = this.name  
         document.querySelector("#teddyImg").src = this.imageUrl
         document.querySelector("#teddyPara").innerHTML = this.para
@@ -99,7 +100,7 @@ export default class Product {
 
     priceUpdate (priceOneProduct) {
 
-        // Changement du prix en fonction de la quantité d'article
+        // Changement du prix en fonction de la quantité d'article 
         
         document.querySelector("#product-quantity").addEventListener('change', (event) => 
         {

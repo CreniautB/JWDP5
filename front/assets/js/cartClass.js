@@ -1,17 +1,28 @@
 export default class Cart {
-    constructor (inStorage)
-    {  
-        this.inStorage = inStorage    
-        this.totalPrice = 0   
-    }
-   
 
     /** Affichage du récapitulatif dans le panier */
 
+    init() 
+    {
+        this.totalPrice = 0
+        if (localStorage.article){
+            this.article = JSON.parse(localStorage.article);
+            this.quantity = 0
+            this.article.forEach(produit => {
+                this.quantity = parseInt(produit.quantity) + this.quantity
+            })
+            document.querySelector("#article").innerHTML = this.quantity
+        }
+        else {
+            this.article = []
+            this.quantity = 0
+            document.querySelector("#article").innerHTML = this.quantity
+        }
+        
+    }
+
     displayTeddy() {
-
-
-        this.inStorage.forEach(element => {
+        this.article.forEach(element => {
     
             fetch(`http://localhost:3000/api/teddies/${element.id}`)
             .then((response) => {
@@ -56,25 +67,22 @@ export default class Cart {
 
     delProduit(id_produit) {
 
-         this.inStorage = JSON.parse(localStorage.article);
-                inStorage.forEach(teddie => {
-                    console.log(teddie.id)
-                    console.log(id_produit)
-                    if (teddie.id == id_produit ) {
-                        const index = inStorage.indexOf(teddie);
-                        if (index > -1) {
-                            inStorage.splice(index, 1);
-                            let newDataStorage = JSON.stringify(inStorage);
-                            localStorage.setItem(`article`, `${newDataStorage}`);
+        this.article.forEach(teddie => {
 
-                            if (localStorage.article == "[]"){
-                                localStorage.clear()
-                            }
-                            location.reload()
-                        }
+            if (teddie.id == id_produit ) {
+                const index = this.article.indexOf(teddie);
+                if (index > -1) {
+                    this.article.splice(index, 1);
+                    let newDataStorage = JSON.stringify(this.article);
+                    localStorage.setItem(`article`, `${newDataStorage}`);
+
+                    if (localStorage.article == "[]"){
+                        localStorage.clear()
                     }
-                 }
-            )
+                    location.reload()
+                }
+            }
+         })
          }
 
          /** F vérification des valeurs de contact via regex */
@@ -110,7 +118,7 @@ export default class Cart {
         }
 
         /** Chargement de la page de confirmation si la commande est Ok */
-        confirmationPage = async (order) => {
+        confirmationPage (order) {
             try {
                 let urlData = 'confirmation.html?'+"id="+order.orderId+"&"+"total="+this.totalPrice
                 window.location = urlData
@@ -122,7 +130,7 @@ export default class Cart {
 
         /** Récupération et vérification du formulaire et envoie de commande si Ok */
         formHandler () {
-        document.querySelector("#formCart").addEventListener("submit", async (event) => {
+            document.querySelector("#formCart").addEventListener("submit", async (event) => {
 
             try {
                 event.preventDefault();
@@ -146,14 +154,11 @@ export default class Cart {
                 order.products = productiD;
                 order.contact = contact;
 
-        
-
                 /** Vérifie le formulaire via F => checkcontact */
                 if(this.checkContact(contact)) {
                     const sendOrder = await this.postServer(order);
                     this.confirmationPage(sendOrder)
                 }
-
 
             } catch (error)  {
                 errordisplayed();
@@ -182,4 +187,34 @@ export default class Cart {
                 errordisplayed();
             }
         };
+
+        addTeddy() {
+                let product_id = document.querySelector("main").id
+                let quantity = document.getElementById('product-quantity').value;
+                const newProduit = { id: product_id, quantity: quantity };
+            
+                /** controle si le panier n'est pas vide */
+                if (this.article) {
+                   
+                    let existe = false;
+                    /** si l'article n'est pas présent dans le panier il l'ajoute */
+        
+                    this.article.map(produit => {
+                        if (produit.id == product_id) {
+                            existe = true;
+                            produit.quantity = quantity;
+                        }
+                    });
+        
+                    if (!existe) { 
+                    this.article.push(newProduit);
+                    }
+        
+                } else {
+                    this.article.push(newProduit);
+                }
+
+                localStorage.setItem('article', JSON.stringify(this.article))
+                location.reload()
+        }
 }

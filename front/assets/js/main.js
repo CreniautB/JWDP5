@@ -1,3 +1,4 @@
+import Cart from "./cartClass.js";
 import Product from "./productClass.js"
 
 
@@ -16,5 +17,10 @@ fetch('http://localhost:3000/api/teddies')
         /** Afficage des produits dans le dom */
         teddy.displayProductMain(model)
     });
+  })
+  .then(() => {
+    let cart = new Cart()
+    cart.init()
+
   })
 
