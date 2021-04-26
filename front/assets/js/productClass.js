@@ -97,5 +97,16 @@ export default class Product {
         document.querySelector("#price").innerHTML = teddyPrice + " €"
     }
 
+    priceUpdate (priceOneProduct) {
+
+        // Changement du prix en fonction de la quantité d'article
+        
+        document.querySelector("#product-quantity").addEventListener('change', (event) => 
+        {
+            let num = document.querySelector("#product-quantity").value
+            document.querySelector("#price").innerHTML = priceOneProduct * num + " €"
+        
+        })
+    }
     
 }

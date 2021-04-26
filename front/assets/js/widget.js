@@ -14,8 +14,7 @@ const getQuantities = async () => {
             return produit
         }));
     }
-    else 
-    {
+    else {
         return  0
     }
     

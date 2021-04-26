@@ -36,6 +36,8 @@ img
 #titleCart
 {
     text-align: center;
+    font-size: 22px;
+    margin-bottom: 0;
 }
 
 main 
@@ -60,18 +62,24 @@ main
             text-align: center;
             width: 300px;
 
+            h2 
+            {
+                font-weight: 500;
+            }
+
             img 
             {
                 margin-bottom: 1em;
             }
             button 
             {
-                border:solid 2.5px $light;
+                background-color: $darker;
+                font-size: 20px;
+                padding: 0.5em;
+                border:solid 1.5px black;
                 box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
                 border-radius: 110px 15px 120px 15px/15px 120px 15px 110px;
-                background: linear-gradient(to bottom right, #8f5bfe 4%, #ba7284 100%);
-                color: white;
-                padding: 1em;
+                font-weight: 500;
             }         
             
         }
@@ -110,18 +118,19 @@ main
             {
                 width: 80%;
                 margin: auto;
-                border: 1px solid #8f5bfe;
                 padding: 0.8em;
                 border-radius: 5px;
             }
             #sub
             {
-                border: 3px solid #8f5bfe;
-                background: linear-gradient(to bottom right, #8f5bfe 4%, #ba7284 100%);
-                color: white;
-                border-radius: 5px;
-                padding: 1em;
                 margin-top: 1em;
+                background-color: $darker;
+                font-size: 20px;
+                padding: 0.5em;
+                border:solid 1.5px black;
+                box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+                border-radius: 110px 15px 120px 15px/15px 120px 15px 110px;
+                font-weight: 500;
                 
             }
             input::placeholder

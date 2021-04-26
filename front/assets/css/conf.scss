@@ -1,3 +1,5 @@
+$light : #f3e9f1;
+$darker : #fff5fd;
 $rale : 'Raleway', sans-serif;
 main
 {
@@ -19,9 +21,17 @@ h3
 #comeBack
 {
     
-    background: linear-gradient(to bottom right, #8f5bfe 4%, #ba7284 100%);
-    color: white;
-    padding: 1em;
+    background-color: $darker;
+    font-size: 20px;
+    padding: 0.5em;
+    border:solid 2px black;
+    box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+    border-radius: 110px 15px 120px 15px/15px 120px 15px 110px;
+    font-weight: 600;
+    color: black;
     text-decoration: none;
-    border-radius: 5px;
+}
+#total
+{
+    margin-top: 0.5em;
 }

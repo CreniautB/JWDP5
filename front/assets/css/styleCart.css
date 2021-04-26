@@ -31,6 +31,8 @@ img {
 
 #titleCart {
   text-align: center;
+  font-size: 22px;
+  margin-bottom: 0;
 }
 
 main {
@@ -57,19 +59,23 @@ main #articleContainer article {
   width: 300px;
 }
 
+main #articleContainer article h2 {
+  font-weight: 500;
+}
+
 main #articleContainer article img {
   margin-bottom: 1em;
 }
 
 main #articleContainer article button {
-  border: solid 2.5px #f3e9f1;
+  background-color: #fff5fd;
+  font-size: 20px;
+  padding: 0.5em;
+  border: solid 1.5px black;
   -webkit-box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
           box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
   border-radius: 110px 15px 120px 15px/15px 120px 15px 110px;
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(4%, #8f5bfe), to(#ba7284));
-  background: linear-gradient(to bottom right, #8f5bfe 4%, #ba7284 100%);
-  color: white;
-  padding: 1em;
+  font-weight: 500;
 }
 
 main #titlePrice {
@@ -110,19 +116,20 @@ main #formContainer form label {
 main #formContainer form input {
   width: 80%;
   margin: auto;
-  border: 1px solid #8f5bfe;
   padding: 0.8em;
   border-radius: 5px;
 }
 
 main #formContainer form #sub {
-  border: 3px solid #8f5bfe;
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(4%, #8f5bfe), to(#ba7284));
-  background: linear-gradient(to bottom right, #8f5bfe 4%, #ba7284 100%);
-  color: white;
-  border-radius: 5px;
-  padding: 1em;
   margin-top: 1em;
+  background-color: #fff5fd;
+  font-size: 20px;
+  padding: 0.5em;
+  border: solid 1.5px black;
+  -webkit-box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
+          box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.2);
+  border-radius: 110px 15px 120px 15px/15px 120px 15px 110px;
+  font-weight: 500;
 }
 
 main #formContainer form input::-webkit-input-placeholder {

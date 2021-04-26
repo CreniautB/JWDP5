@@ -2,8 +2,7 @@ import Product from "./productClass.js"
 
 const productId = new URLSearchParams(window.location.search)
 const product_id = productId.getAll("id")[0]
-let priceOneProduct
-let teddy
+
 
 fetch(`http://localhost:3000/api/teddies/${product_id}`)
 .then((response) => {
@@ -12,12 +11,22 @@ fetch(`http://localhost:3000/api/teddies/${product_id}`)
 
 .then ((data) => {
 
-    teddy = new Product(data.name, data.price, data.imageUrl, data.colors, data._id, data.description)  
-    priceOneProduct = data.price  
+    let teddy = new Product(data.name, data.price, data.imageUrl, data.colors, data._id, data.description)  
+    let priceOneProduct = data.price  
     teddy.displayProduct()
+    teddy.priceUpdate(priceOneProduct)
 })
 
 
+
+const productQuantity = () => {
+    try {
+        let quantity = document.getElementById('product-quantity').value;
+        return quantity;
+    } catch (error)  {
+        errordisplayed();
+    }
+};
 
 const storageControl = () => {
     try {
@@ -56,32 +65,14 @@ const storageControl = () => {
 
 };
 
-/** Enregistrement dans le Panier */
-const productQuantity = () => {
-    try {
-        let quantity = document.getElementById('product-quantity').value;
-        return quantity;
-    } catch (error)  {
-        let msg = "probleme de "
-        errordisplayed(msg);
-    }
-};
-
-/** Changement du prix en fonction de la quantité d'article */
-
-document.querySelector("#product-quantity").addEventListener('change', (event) => 
-{
-    let num = document.querySelector("#product-quantity").value
-    document.querySelector("#price").innerHTML = priceOneProduct * num + " €"
-
-})
-
-const addCart = document.getElementById('add-cart');
 
 /** Ajout de l'article dans le panier */
 
-addCart.addEventListener("click", () => {
+document.getElementById('add-cart').addEventListener("click", () => {
     localStorage.setItem(`article`, `${storageControl()}`);
     widgetQuantities();
-});
+})
+
+
+
 
