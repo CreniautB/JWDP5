@@ -7,9 +7,7 @@ if (localStorage.article){
     document.querySelector("main").style.display = "block"
 
     /** Creation du panier via son Objet Cart */
-
     let cart = new Cart(inStorage)
-    cart.init()
 
     // affichage du résumer des produits
     cart.displayTeddy()
@@ -17,8 +15,10 @@ if (localStorage.article){
     // Gestion du formulaire et de l'envoi des données au server
     cart.formHandler()
 }
+
 else
 {
+    // Indique que le panier est vide
     document.querySelector("main").style.display = "none";
     document.querySelector("#emptyCart").style.display = "block"
 }

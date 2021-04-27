@@ -9,7 +9,7 @@ export default class Product {
         this.para = para
     }
 
-    /** Métode affichant les produit sur l'index */
+    // Métode affichant les produit sur l'index 
 
     displayProductMain(model) {
     

@@ -66,15 +66,24 @@ header
 {
     width: 50%;
     margin: auto;
-    margin-top: 5em;
-    background-color: $darker;
-    border-radius: 2em;
+    margin-top: 3em;
     text-align: center;
-    padding-bottom: 2em;
-    padding: 1em;
-    
     font-family: $rale ;
-    
+    h1 {
+        margin-bottom: 2em;
+    }
+    a{
+        border: solid 1.5px #41403E;
+        -webkit-box-shadow: 20px 38px 34px -26px ;
+        box-shadow: 2px 8px 4px -6px ;
+        border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+        background-color: #f3e9f1;
+        font-weight: 600;
+        padding: 1em;
+        color: black;
+        text-decoration: none;
+        font-size: 20px;
+    }
 }
 
 
