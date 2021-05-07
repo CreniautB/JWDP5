@@ -1,7 +1,7 @@
 export default class Cart {
     constructor () {
 
-    /** Affichage du récapitulatif dans le panier */
+    // Affichage du récapitulatif dans le panier 
     this.totalPrice = 0
     if (localStorage.article){
         this.article = JSON.parse(localStorage.article);
@@ -27,10 +27,10 @@ export default class Cart {
                 return response.json()
             })
     
-            /** Création de la page Cart via les données ci dessus  */
+            // Création de la page Cart via les données ci dessus  
     
             .then ((data) => {
-            /** Récap Panier */
+            // Récap Panier 
 
             let price = data.price * element.quantity
 
@@ -61,7 +61,7 @@ export default class Cart {
     })}   
     )}
 
-    /** Métode de supression d'un produit */
+    // Métode de supression d'un produit 
 
     delProduit(id_produit) {
 
@@ -83,7 +83,7 @@ export default class Cart {
          })
          }
 
-        /** F vérification des valeurs de contact via regex */
+        //  vérification des valeurs de contact via regex 
         checkContact(contact){
 
         const expName = /^(([a-zA-ZÀ-Ýà-ï]+)(-| )?){1,2}[a-zA-ZÀ-Ýà-ï]+$/;
@@ -115,7 +115,7 @@ export default class Cart {
         }
     }
 
-    /** Chargement de la page de confirmation si la commande est Ok */
+    // Chargement de la page de confirmation si la commande est Ok 
     confirmationPage (order) {
         try {
             let urlData = 'confirmation.html?'+"id="+order.orderId+"&"+"total="+this.totalPrice
@@ -126,7 +126,7 @@ export default class Cart {
         }
     }
 
-    /** Récupération et vérification du formulaire et envoie de commande si Ok */
+    // Récupération et vérification du formulaire et envoie de commande si Ok 
     formHandler () {
         document.querySelector("#formCart").addEventListener("submit", async (event) => {
 
@@ -152,7 +152,7 @@ export default class Cart {
             order.products = productiD;
             order.contact = contact;
 
-            /** Vérifie le formulaire via F => checkcontact */
+            // Vérifie le formulaire via F => checkcontact 
             if(this.checkContact(contact)) {
                 const sendOrder = await this.postServer(order);
                 this.confirmationPage(sendOrder)
@@ -164,7 +164,7 @@ export default class Cart {
         });
     }
 
-    /** Envoie le commande au server */
+    // Envoie le commande au server 
 
     postServer = async (order) => {
         try  {
@@ -191,11 +191,11 @@ export default class Cart {
         let quantity = document.getElementById('product-quantity').value;
         const newProduit = { id: product_id, quantity: quantity };
     
-        /** controle si le panier n'est pas vide */
+        // controle si le panier n'est pas vide 
         if (this.article) {
             
             let existe = false;
-            /** si l'article n'est pas présent dans le panier il l'ajoute */
+            // si l'article n'est pas présent dans le panier il l'ajoute 
 
             this.article.map(produit => {
                 if (produit.id == product_id) {

@@ -48,17 +48,17 @@ export default class Product {
         });
     }
 
-    /** Métodes affichant les produtis page produit */
+    // Métodes affichant les produtis page produit */
 
     displayProduct() {
-        /** Création de la page produit */
+        // Création de la page produit 
         document.querySelector("main").id = this.id
         document.querySelector("#teddyH1").innerHTML = this.name  
         document.querySelector("#teddyImg").src = this.imageUrl
         document.querySelector("#teddyPara").innerHTML = this.para
 
 
-        /** Ratio Couleurs Produit */
+        // Ratio Couleurs Produit 
         this.colors.forEach(colors => {
             
             const colorsName = document.createElement("div");

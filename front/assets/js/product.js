@@ -1,5 +1,5 @@
-import Product from "./productClass.js"
-import Cart from "./cartClass.js"
+import Product from "./class/productClass.js"
+import Cart from "./class/cartClass.js"
 
 // Récupération de l'id du produit via l'url puis Fecth de celui ci 
 const productId = new URLSearchParams(window.location.search)

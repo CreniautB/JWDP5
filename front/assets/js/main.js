@@ -1,5 +1,5 @@
-import Cart from "./cartClass.js";
-import Product from "./productClass.js"
+import Cart from "./class/cartClass.js";
+import Product from "./class/productClass.js"
 
 // creaton du cart a partir du local storage
 let cart = new Cart()

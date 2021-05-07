@@ -1,4 +1,4 @@
-import Cart from "./cartClass.js"
+import Cart from "./class/cartClass.js"
 
 /** Affichage ou non du formulaire si panier vide  */
 
