@@ -5,7 +5,7 @@ import Cart from "./cartClass.js"
 const productId = new URLSearchParams(window.location.search)
 const product_id = productId.getAll("id")[0]
 
-fetch(`http://localhost:3000/api/teddiproduct_id}`)
+fetch(`http://localhost:3000/api/teddies/${product_id}`)
 .then((response) => {
     return response.json()
 })
@@ -29,7 +29,6 @@ fetch(`http://localhost:3000/api/teddiproduct_id}`)
     /** Ajout de l'article dans le panier */
     
     document.getElementById('add-cart').addEventListener("click", () => {
-    
         cart.addTeddy()
     })
 }).catch((error) => {
